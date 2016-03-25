@@ -1,0 +1,21 @@
+spring:
+  profiles.active: default
+---
+spring:
+  profiles: default   # this is for local development. For QA, Production override these values
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/testapp
+    username: postgres
+    password: "control"
+  jpa:
+    generate-ddl: true # generate the ddl files for now - should set this back to false
+    hibernate:
+      ddl-auto: create # can set back to create for now to generate the schema for devs
+      generate-ddl: true
+  data:
+    jpa:
+      repositories:
+        enabled: true
+server:
+  port: 8187
